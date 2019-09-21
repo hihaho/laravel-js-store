@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Hihaho\LaravelJsStore\Exceptions;
+namespace HiHaHo\LaravelJsStore\Exceptions;
 
 
 use Exception;

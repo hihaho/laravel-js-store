@@ -2,6 +2,8 @@
 
 namespace HiHaHo\LaravelJsStore;
 
+use HiHaHo\LaravelJsStore\Console\MakeFrontendDataProviderCommand;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
@@ -12,20 +14,24 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function boot()
     {
-         $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-js-store');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-js-store');
 
-        Blade::directive('frontend_store', function () {
-            return "@include('laravel-js-store::script')";
-        });
+        Blade::include('laravel-js-store::script', 'frontend_store');
+
+        $this->bindDataProviders();
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../config/config.php' => config_path('laravel-js-store.php'),
-            ], 'config');
+            ], 'laravel-js-store-config');
 
             $this->publishes([
                 __DIR__.'/../resources/views' => resource_path('views/vendor/laravel-js-store'),
-            ], 'views');
+            ], 'laravel-js-store-views');
+
+            $this->commands([
+                MakeFrontendDataProviderCommand::class,
+            ]);
         }
     }
 
@@ -40,5 +46,29 @@ class ServiceProvider extends BaseServiceProvider
             return new Store;
         });
         $this->app->alias(Store::class, 'laravel-js-store');
+    }
+
+    protected function bindDataProviders()
+    {
+        $data = config('laravel-js-store.data-providers', []);
+
+        if (!is_array($data)) {
+            return;
+        }
+
+        /** @var Collection $providers */
+        $providers = collect($data)->map(function (string $provider) {
+            return app()->make($provider);
+        })->filter(function ($provider) {
+            return $provider instanceof AbstractFrontendDataProvider;
+        })->filter->hasData();
+
+        if ($providers->isEmpty()) {
+            return;
+        }
+
+        view()->composer('*', function() use ($providers) {
+            $providers->each->store();
+        });
     }
 }

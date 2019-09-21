@@ -2,7 +2,7 @@
 
 namespace HiHaHo\LaravelJsStore;
 
-use Hihaho\LaravelJsStore\Exceptions\JsonEncodeStoreDataException;
+use HiHaHo\LaravelJsStore\Exceptions\JsonEncodeStoreDataException;
 use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Support\Collection;
 

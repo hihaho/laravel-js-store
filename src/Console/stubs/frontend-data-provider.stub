@@ -1,0 +1,23 @@
+<?php
+
+namespace DummyNamespace;
+
+use HiHaHo\LaravelJsStore\AbstractFrontendDataProvider;
+
+class DummyClass extends AbstractFrontendDataProvider
+{
+    /**
+     * @var string Optional key that will be used when this provider is JSON encoded
+     */
+    protected $key;
+
+    /**
+     * The data that will be JSON encoded
+     *
+     * @return mixed
+     */
+    public function data()
+    {
+        // return 'my-data';
+    }
+}
