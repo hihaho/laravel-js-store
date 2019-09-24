@@ -17,11 +17,121 @@ You can install the package via composer:
 composer require hihaho/laravel-js-store
 ```
 
+Next you should render the js data on your page, there are a few different ways to do this:
+
+#### Blade directive
+Add the `@frontend_store` directive to your view:
+
+``` html
+<html>
+    <head>
+        
+    </head>
+    <body>
+        @frontend_store
+    </body>
+</html>
+```
+
+#### Output the data yourself
+You can also just output the data yourself, the way you want
+``` html
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <script>
+            window.myData = '{{ frontend_store() }}';
+        </script>
+    </body>
+</html>
+```
+
+#### Overwrite the default view
+Create a new view: `resources/views/vendor/laravel-js-store/script.blade.php`.
+Output the data the way you want and then include it using the blade directive (`@frontend_store`).
+
 ## Usage
 
-``` php
-// Usage description here
+There are two methods of pushing data to the store, through data-providers or pushing manually.
+
+### Pushing manually
+
+At any point in your application you can push data to the store using the helper, facade or through the laravel container.
+
+You can push pretty much any type of data, as long as it can be cast to a string.
+
+```php
+// Using the helper
+frontend_store()->put('user', Auth::user());
+
+// Using the facade
+\HiHaHo\LaravelJsStore\StoreFacade::put('user', Auth::user());
+
+// Using the laravel container
+app()->make(\HiHaHo\LaravelJsStore\Store::class)->put('user', Auth::user());
+app()->make('laravel-js-store')->put('user', Auth::user());
 ```
+
+### Data-providers
+
+Data-providers are classes that can be used to globally define data that should be send to your frontend.
+It's also a convenient way to store more logic related to the data, or define a rule if the data needs to be rendered.
+
+The data-providers are defined in your config, so first you'll have to publish the config file.
+
+```bash
+php artisan vendor:publish --tag=laravel-js-store-config
+```
+
+This should create `config/laravel-js-store.php`.
+
+Create a data provider using the artisan make command:
+```bash
+php artisan make:frontend-data-provider SomeName
+```
+
+This creates a data-provider which extends `HiHaHo\LaravelJsStore\AbstractFrontendDataProvider`.
+
+An example of a data-provider might look like this:
+
+```php
+<?php
+
+namespace App\Http\FrontendDataProviders;
+
+use HiHaHo\LaravelJsStore\AbstractFrontendDataProvider;
+
+class User extends AbstractFrontendDataProvider
+{
+    /**
+     * The data that will be JSON encoded
+     *
+     * @return mixed
+     */
+    public function data()
+    {
+        return Auth::user();
+    }
+    
+    public function hasData(): bool
+    {
+        // Only push the data when the user is signed in
+        return Auth::check();
+    }
+}
+```
+
+Next, register you data-provider in `config/laravel-js-store.php`:
+
+```
+'data-providers' => [
+    \App\Http\FrontendDataProviders\User::class,
+],
+```
+
+Your data will now automatically be rendered in blade views (in this case only when the user is signed in).
 
 ### Testing
 
@@ -37,13 +147,9 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-### Security
-
-If you discover any security related issues, please email robert@hihaho.com instead of using the issue tracker.
-
 ## Credits
 
-- [Robert Boes](https://github.com/hihaho)
+- [Robert Boes](https://github.com/RobertBoes)
 - [All Contributors](../../contributors)
 
 ## License
