@@ -52,6 +52,7 @@ class StoreTest extends TestCase
     {
         $this->store->put('user', true);
 
+        $this->assertInstanceOf(Store::class, frontend_store());
         $this->assertIsString((string) frontend_store());
         $this->assertJson((string) frontend_store());
     }
