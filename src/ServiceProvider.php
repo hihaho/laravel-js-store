@@ -67,7 +67,7 @@ class ServiceProvider extends BaseServiceProvider
             return;
         }
 
-        view()->composer('*', function() use ($providers) {
+        view()->composer('*', function () use ($providers) {
             $providers->each->store();
         });
     }

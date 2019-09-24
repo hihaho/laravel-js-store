@@ -3,7 +3,6 @@
 
 namespace HiHaHo\LaravelJsStore;
 
-
 use Illuminate\Support\Str;
 
 abstract class AbstractFrontendDataProvider
@@ -33,10 +32,10 @@ abstract class AbstractFrontendDataProvider
 
         $class = (new \ReflectionClass($this))->getShortName();
 
-        if (Str::endsWith($class,'FrontendDataProvider')) {
-            $name = Str::before($class,'FrontendDataProvider');
-        } else if (Str::endsWith($class,'DataProvider')) {
-            $name = Str::before($class,'DataProvider');
+        if (Str::endsWith($class, 'FrontendDataProvider')) {
+            $name = Str::before($class, 'FrontendDataProvider');
+        } elseif (Str::endsWith($class, 'DataProvider')) {
+            $name = Str::before($class, 'DataProvider');
         }
 
         return Str::snake($name ?? $class);

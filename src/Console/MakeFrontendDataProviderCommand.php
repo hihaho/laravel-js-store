@@ -3,7 +3,6 @@
 
 namespace HiHaHo\LaravelJsStore\Console;
 
-
 use Illuminate\Console\GeneratorCommand;
 
 class MakeFrontendDataProviderCommand extends GeneratorCommand
