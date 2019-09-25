@@ -50,20 +50,9 @@ class ServiceProvider extends BaseServiceProvider
 
     protected function bindDataProviders()
     {
-        $data = config('laravel-js-store.data-providers', []);
+        $providers = DataProviderCollection::fromConfig('laravel-js-store.data-providers');
 
-        if (!is_array($data)) {
-            return;
-        }
-
-        /** @var Collection $providers */
-        $providers = collect($data)->map(function (string $provider) {
-            return app()->make($provider);
-        })->filter(function ($provider) {
-            return $provider instanceof AbstractFrontendDataProvider;
-        })->filter->hasData();
-
-        if ($providers->isEmpty()) {
+        if ($providers->hasData()) {
             return;
         }
 
