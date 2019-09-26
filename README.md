@@ -14,7 +14,7 @@ You can also manually push data on the fly, for example in a controller.
 You can install the package via composer:
 
 ```bash
-composer require hihaho/laravel-js-store@^1.0
+composer require hihaho/laravel-js-store:^1.0
 ```
 
 Next you should render the js data on your page, there are a few different ways to do this:
