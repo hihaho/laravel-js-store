@@ -6,6 +6,7 @@ namespace HiHaHo\LaravelJsStore\Tests;
 
 use HiHaHo\LaravelJsStore\ServiceProvider;
 use HiHaHo\LaravelJsStore\Store;
+use HiHaHo\LaravelJsStore\Tests\stubs\ValidDataProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
@@ -25,5 +26,18 @@ class TestCase extends BaseTestCase
         parent::setUp();
 
         $this->store = $this->app->make(Store::class);
+    }
+
+    /**
+     * Define environment setup.
+     *
+     * @param  \Illuminate\Foundation\Application  $app
+     * @return void
+     */
+    protected function getEnvironmentSetUp($app)
+    {
+        $app['config']->set('laravel-js-store.data-providers', [
+            ValidDataProvider::class,
+        ]);
     }
 }
