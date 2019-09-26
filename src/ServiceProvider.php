@@ -52,12 +52,12 @@ class ServiceProvider extends BaseServiceProvider
     {
         $providers = DataProviderCollection::fromConfig('laravel-js-store.data-providers');
 
-        if ($providers->hasData()) {
+        if (!$providers->hasData()) {
             return;
         }
 
         view()->composer('*', function () use ($providers) {
-            $providers->each->store();
+            $providers->store();
         });
     }
 }

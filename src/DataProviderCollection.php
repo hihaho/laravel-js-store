@@ -32,6 +32,11 @@ class DataProviderCollection
         return new self($data);
     }
 
+    public function store()
+    {
+        $this->items->each->store();
+    }
+
     public function hasData(): bool
     {
         return $this->items->isNotEmpty();
