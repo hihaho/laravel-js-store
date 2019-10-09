@@ -19,7 +19,7 @@ class DataProviderTest extends TestCase
         $validDataProvider->store();
 
         /** @var Collection $storeData */
-        $storeData = $this->app->make('laravel-js-store')->data();
+        $storeData = $this->app->make('js-store')->data();
 
         $this->assertTrue($storeData->contains('some-random-name', []));
     }
@@ -31,7 +31,7 @@ class DataProviderTest extends TestCase
         $validDataProvider->store();
 
         /** @var Collection $storeData */
-        $storeData = $this->app->make('laravel-js-store')->data();
+        $storeData = $this->app->make('js-store')->data();
 
         $this->assertTrue($storeData->contains('valid', []));
     }
@@ -43,7 +43,7 @@ class DataProviderTest extends TestCase
         $validDataProvider->store();
 
         /** @var Collection $storeData */
-        $storeData = $this->app->make('laravel-js-store')->data();
+        $storeData = $this->app->make('js-store')->data();
 
         $this->assertTrue($storeData->contains('user', []));
     }
@@ -55,7 +55,7 @@ class DataProviderTest extends TestCase
         $validDataProvider->store();
 
         /** @var Collection $storeData */
-        $storeData = $this->app->make('laravel-js-store')->data();
+        $storeData = $this->app->make('js-store')->data();
 
         $this->assertTrue($storeData->contains('unit-test-user', []));
     }

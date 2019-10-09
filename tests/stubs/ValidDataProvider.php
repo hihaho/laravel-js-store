@@ -8,6 +8,8 @@ use HiHaHo\LaravelJsStore\AbstractFrontendDataProvider;
 
 class ValidDataProvider extends AbstractFrontendDataProvider
 {
+    const DATA = 'Test value';
+
     /**
      * The data that will be JSON encoded
      *
@@ -15,6 +17,6 @@ class ValidDataProvider extends AbstractFrontendDataProvider
      */
     public function data()
     {
-        return [];
+        return self::DATA;
     }
 }

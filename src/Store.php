@@ -3,10 +3,11 @@
 namespace HiHaHo\LaravelJsStore;
 
 use HiHaHo\LaravelJsStore\Exceptions\JsonEncodeStoreDataException;
+use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Support\Collection;
 
-class Store implements Jsonable
+class Store implements Jsonable, Arrayable
 {
     protected $data;
 
@@ -25,6 +26,16 @@ class Store implements Jsonable
     public function data(): Collection
     {
         return $this->data;
+    }
+
+    /**
+     * Get the instance as an array.
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data->toArray();
     }
 
     /**

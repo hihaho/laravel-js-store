@@ -21,7 +21,7 @@ abstract class AbstractFrontendDataProvider
 
     public function store()
     {
-        app()->make('laravel-js-store')->put($this->key(), $this->data());
+        app()->make('js-store')->put($this->key(), $this->data());
     }
 
     protected function key()

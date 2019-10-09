@@ -16,6 +16,6 @@ class StoreFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'laravel-js-store';
+        return 'js-store';
     }
 }

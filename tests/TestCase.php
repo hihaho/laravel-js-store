@@ -36,7 +36,7 @@ class TestCase extends BaseTestCase
      */
     protected function getEnvironmentSetUp($app)
     {
-        $app['config']->set('laravel-js-store.data-providers', [
+        $app['config']->set('js-store.data-providers', [
             ValidDataProvider::class,
         ]);
     }

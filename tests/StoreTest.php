@@ -13,7 +13,7 @@ class StoreTest extends TestCase
     {
         $store = $this->app->make(Store::class);
         $helperStore = frontend_store();
-        $aliasStore = $this->app->make('laravel-js-store');
+        $aliasStore = $this->app->make('js-store');
 
         $this->assertSame($store, $helperStore);
         $this->assertSame($store, $aliasStore);

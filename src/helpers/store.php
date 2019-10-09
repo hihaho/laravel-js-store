@@ -14,9 +14,9 @@ if (! function_exists('frontend_store')) {
         $arguments = func_get_args();
 
         if (empty($arguments)) {
-            return app('laravel-js-store');
+            return app('js-store');
         }
 
-        return app('laravel-js-store')->put($arguments[0], $arguments[1]);
+        return app('js-store')->put($arguments[0], $arguments[1]);
     }
 }

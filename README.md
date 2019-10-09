@@ -42,14 +42,14 @@ You can also just output the data yourself, the way you want
     </head>
     <body>
         <script>
-            window.myData = '{{ frontend_store() }}';
+            window.myData = @json(frontend_store());
         </script>
     </body>
 </html>
 ```
 
 #### Overwrite the default view
-Create a new view: `resources/views/vendor/laravel-js-store/script.blade.php`.
+Create a new view: `resources/views/vendor/js-store/script.blade.php`.
 Output the data the way you want and then include it using the blade directive (`@frontend_store`).
 
 ## Usage
@@ -71,7 +71,7 @@ frontend_store()->put('user', Auth::user());
 
 // Using the laravel container
 app()->make(\HiHaHo\LaravelJsStore\Store::class)->put('user', Auth::user());
-app()->make('laravel-js-store')->put('user', Auth::user());
+app()->make('js-store')->put('user', Auth::user());
 ```
 
 ### Data-providers
@@ -85,7 +85,7 @@ The data-providers are defined in your config, so first you'll have to publish t
 php artisan vendor:publish --tag=laravel-js-store-config
 ```
 
-This should create `config/laravel-js-store.php`.
+This should create `config/js-store.php`.
 
 Create a data provider using the artisan make command:
 ```bash
@@ -123,7 +123,7 @@ class User extends AbstractFrontendDataProvider
 }
 ```
 
-Next, register you data-provider in `config/laravel-js-store.php`:
+Next, register you data-provider in `config/js-store.php`:
 
 ```
 'data-providers' => [
