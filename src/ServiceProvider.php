@@ -56,7 +56,7 @@ class ServiceProvider extends BaseServiceProvider
             return;
         }
 
-        view()->composer('*', function () use ($providers) {
+        view()->composer('laravel-js-store::script', function () use ($providers) {
             $providers->store();
         });
     }

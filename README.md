@@ -33,23 +33,10 @@ Add the `@frontend_store` directive to your view:
 </html>
 ```
 
-#### Output the data yourself
-You can also just output the data yourself, the way you want
-``` html
-<html>
-    <head>
-        
-    </head>
-    <body>
-        <script>
-            window.myData = @json(frontend_store());
-        </script>
-    </body>
-</html>
-```
-
 #### Overwrite the default view
-Create a new view: `resources/views/vendor/js-store/script.blade.php`.
+Publish the current one using `php artisan vendor:publish --tag=laravel-js-store-views`
+or create a new view: `resources/views/vendor/js-store/script.blade.php`
+
 Output the data the way you want and then include it using the blade directive (`@frontend_store`).
 
 ## Usage
