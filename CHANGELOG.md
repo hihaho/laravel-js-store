@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-js-store` will be documented in this file
 
+## 1.1.2 - 2019-10-25
+
+- Fix: Start collecting DataProviders only when the script is rendered
+- Fix: Updated namespacing
+
 ## 1.1.1 - 2019-10-25
 
 - Fix: Loading correct config

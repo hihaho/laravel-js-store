@@ -4,7 +4,7 @@
 namespace HiHaHo\LaravelJsStore\Tests;
 
 
-use Hihaho\LaravelJsStore\DataProviderCollection;
+use HiHaHo\LaravelJsStore\DataProviderCollection;
 use HiHaHo\LaravelJsStore\Exceptions\JsonEncodeStoreDataException;
 use HiHaHo\LaravelJsStore\Store;
 use HiHaHo\LaravelJsStore\Tests\stubs\InvalidDataProvider;

@@ -50,13 +50,13 @@ class ServiceProvider extends BaseServiceProvider
 
     protected function bindDataProviders()
     {
-        $providers = DataProviderCollection::fromConfig('js-store.data-providers');
+        view()->composer('js-store::script', function () {
+            $providers = DataProviderCollection::fromConfig('js-store.data-providers');
 
-        if (!$providers->hasData()) {
-            return;
-        }
+            if (!$providers->hasData()) {
+                return;
+            }
 
-        view()->composer('js-store::script', function () use ($providers) {
             $providers->store();
         });
     }

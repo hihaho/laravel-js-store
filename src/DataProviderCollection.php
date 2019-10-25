@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Hihaho\LaravelJsStore;
+namespace HiHaHo\LaravelJsStore;
 
 use Illuminate\Support\Collection;
 
