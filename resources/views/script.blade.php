@@ -1,3 +1,3 @@
 <script>
-    window.{{ config('laravel-js-store.window-element') }} = @json(frontend_store());
+    window.{{ config('js-store.window-element') }} = @json(frontend_store()->data());
 </script>

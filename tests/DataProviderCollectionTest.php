@@ -18,69 +18,69 @@ class DataProviderCollectionTest extends TestCase
     {
         $this->app['config']->set('js-store.test', 'broken');
 
-        $providers = DataProviderCollection::fromConfig('laravel-js-store.test');
+        $providers = DataProviderCollection::fromConfig('js-store.test');
 
         $this->assertFalse($providers->hasData());
     }
 
     public function test_empty_data_providers_config()
     {
-        $this->app['config']->set('laravel-js-store.test', []);
+        $this->app['config']->set('js-store.test', []);
 
-        $providers = DataProviderCollection::fromConfig('laravel-js-store.test');
+        $providers = DataProviderCollection::fromConfig('js-store.test');
 
         $this->assertFalse($providers->hasData());
     }
 
     public function test_invalid_data_provider()
     {
-        $this->app['config']->set('laravel-js-store.test', [
+        $this->app['config']->set('js-store.test', [
             InvalidDataProvider::class,
         ]);
 
-        $providers = DataProviderCollection::fromConfig('laravel-js-store.test');
+        $providers = DataProviderCollection::fromConfig('js-store.test');
 
         $this->assertFalse($providers->hasData());
     }
 
     public function test_valid_data_provider()
     {
-        $this->app['config']->set('laravel-js-store.test', [
+        $this->app['config']->set('js-store.test', [
             ValidDataProvider::class,
         ]);
 
-        $providers = DataProviderCollection::fromConfig('laravel-js-store.test');
+        $providers = DataProviderCollection::fromConfig('js-store.test');
 
         $this->assertTrue($providers->hasData());
     }
 
     public function test_empty_data_provider()
     {
-        $this->app['config']->set('laravel-js-store.test', [
+        $this->app['config']->set('js-store.test', [
             ValidEmptyDataProvider::class,
         ]);
 
-        $providers = DataProviderCollection::fromConfig('laravel-js-store.test');
+        $providers = DataProviderCollection::fromConfig('js-store.test');
 
         $this->assertFalse($providers->hasData());
     }
 
     public function test_invalid_config()
     {
-        $this->app['config']->set('laravel-js-store.test', ValidDataProvider::class);
+        $this->app['config']->set('js-store.test', ValidDataProvider::class);
 
-        $providers = DataProviderCollection::fromConfig('laravel-js-store.test');
+        $providers = DataProviderCollection::fromConfig('js-store.test');
 
         $this->assertFalse($providers->hasData());
     }
 
     public function test_provider_stores_data()
     {
-        $this->app['config']->set('laravel-js-store.test', [
+        $this->app['config']->set('js-store.test', [
             ValidDataProvider::class,
         ]);
 
-        $providers = DataProviderCollection::fromConfig('laravel-js-store.test');
+        $providers = DataProviderCollection::fromConfig('js-store.test');
         $providers->store();
 
         /** @var Collection $storeData */
