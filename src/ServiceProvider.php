@@ -41,7 +41,7 @@ class ServiceProvider extends PackageServiceProvider
             /** @var Response $this */
 
             if (! $this->getOriginalContent() instanceof View) {
-                throw new InvalidResponseException('Some error');
+                throw new InvalidResponseException('Response must be rendered using a View.');
             }
 
             $data = is_array($key) ? $key : [$key => $value];
