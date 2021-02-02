@@ -24,14 +24,8 @@ abstract class AbstractFrontendDataProvider
         app()->make('js-store')->put($this->key(), $this->data());
     }
 
-    protected function key(): string
+    public static function convertClassnameToKey(string $class): string
     {
-        if (isset($this->key)) {
-            return $this->key;
-        }
-
-        $class = (new \ReflectionClass($this))->getShortName();
-
         if (Str::endsWith($class, 'FrontendDataProvider')) {
             $name = Str::before($class, 'FrontendDataProvider');
         } elseif (Str::endsWith($class, 'DataProvider')) {
@@ -39,6 +33,17 @@ abstract class AbstractFrontendDataProvider
         }
 
         return Str::snake($name ?? $class);
+    }
+
+    protected function key(): string
+    {
+        if (isset($this->key)) {
+            return $this->key;
+        }
+
+        return self::convertClassnameToKey(
+            (new \ReflectionClass($this))->getShortName()
+        );
     }
 
     public function hasData(): bool
