@@ -59,6 +59,26 @@ frontend_store()->put('user', Auth::user());
 // Using the laravel container
 app()->make(\HiHaHo\LaravelJsStore\Store::class)->put('user', Auth::user());
 app()->make('js-store')->put('user', Auth::user());
+
+// Using the view or response macro
+class Controller
+{
+    public function index()
+    {
+        return view('index')
+            ->js('foo', 'bar');
+    }
+
+    public function create()
+    {
+        return response()
+            ->view('create')
+            ->js([
+                'foo' => 'Fred',
+                'bar' => 'Waldo',
+            ]);
+    }
+}
 ```
 
 ### Data-providers
