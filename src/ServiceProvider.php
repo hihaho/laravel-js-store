@@ -32,7 +32,7 @@ class ServiceProvider extends BaseServiceProvider
 
         Response::macro('js', function ($key, $value = null) {
             if (! $this->getOriginalContent() instanceof View) {
-                throw new InvalidResponseException('Some error');
+                throw new InvalidResponseException('Response must be rendered using a View.');
             }
 
             $data = is_array($key) ? $key : [$key => $value];
