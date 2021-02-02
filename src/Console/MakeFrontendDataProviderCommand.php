@@ -55,18 +55,14 @@ class MakeFrontendDataProviderCommand extends GeneratorCommand
     protected function buildClass($name): string
     {
         $stub = parent::buildClass($name);
-        $key = AbstractFrontendDataProvider::convertClassnameToKey($this->getNameInput());
+        $generatedKey = AbstractFrontendDataProvider::convertClassnameToKey($this->getNameInput());
 
-        if ($this->confirm("Generated key: $key, would you like to use a custom key?")) {
-            $key = $this->ask('Custom key');
+        if ($this->confirm("Generated key: $generatedKey, would you like to use a custom key?")) {
+            $customKey = $this->ask('Custom key');
 
-            $value = 'protected string $key';
+            $replacement = $customKey === '' ? "protected string \$key;" : "protected string \$key = '$customKey';";
 
-            if ($key !== '') {
-                $value .= " = '$key'";
-            }
-
-            $stub = str_replace("{{ CUSTOM_KEY }}", "$value;", $stub);
+            $stub = str_replace("{{ CUSTOM_KEY }}", $replacement, $stub);
         } else {
             $stub = str_replace("    {{ CUSTOM_KEY }}\n\n", '', $stub);
         }
