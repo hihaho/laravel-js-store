@@ -2,6 +2,13 @@
 
 All notable changes to `laravel-js-store` will be documented in this file
 
+## 1.2.0 - 2021-02-02
+
+- #2 Parse JSON client-side using `JSON.parse()` instead of outputting the object directly
+- #3 Added support for Laravel 8
+- #3 Dropped support for older Laravel en PHP versions (Laravel 5.8 and PHP 7.1)
+- #4 Added View and Response macro - `view('index')->js('key', 'value')`
+
 ## 1.1.2 - 2019-10-25
 
 - Fix: Start collecting DataProviders only when the script is rendered

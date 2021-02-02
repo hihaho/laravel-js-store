@@ -7,6 +7,7 @@ namespace HiHaHo\LaravelJsStore\Tests;
 use HiHaHo\LaravelJsStore\ServiceProvider;
 use HiHaHo\LaravelJsStore\Store;
 use HiHaHo\LaravelJsStore\Tests\stubs\ValidDataProvider;
+use Illuminate\Support\Facades\View;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
@@ -25,6 +26,8 @@ class TestCase extends BaseTestCase
         parent::setUp();
 
         $this->store = $this->app->make(Store::class);
+
+        View::addLocation(__DIR__.'/stubs/views');
     }
 
     /**

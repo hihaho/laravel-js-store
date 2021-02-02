@@ -3,9 +3,11 @@
 
 namespace HiHaHo\LaravelJsStore\Tests;
 
-
+use HiHaHo\LaravelJsStore\Exceptions\InvalidResponseException;
 use HiHaHo\LaravelJsStore\Exceptions\JsonEncodeStoreDataException;
 use HiHaHo\LaravelJsStore\Store;
+use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class StoreTest extends TestCase
 {
@@ -63,5 +65,61 @@ class StoreTest extends TestCase
 
         // An invalid UTF8 sequence which causes JSON_ERROR_UTF8
         $this->store->put('user', "\xB1\x31")->toJson();
+    }
+
+    public function test_view_macro_accepts_key_and_value()
+    {
+        $view = view('index')->js('foo', 'bar');
+
+        $this->assertInstanceOf(View::class, $view);
+        $this->assertSame('bar', $this->store->data()->get('foo'));
+    }
+
+    public function test_view_macro_accepts_array()
+    {
+        $view = view('index')->js([
+            'foo' => 'bar',
+        ]);
+
+        $this->assertInstanceOf(View::class, $view);
+        $this->assertSame('bar', $this->store->data()->get('foo'));
+    }
+
+    public function test_view_macro_overwrites_previous_values()
+    {
+        $this->store->put('foo', 'bar');
+
+        view('index')->js('foo', 'baz');
+        $this->assertSame('baz', $this->store->data()->get('foo'));
+
+        view('index')->js([
+            'foo' => 'fred',
+        ]);
+        $this->assertSame('fred', $this->store->data()->get('foo'));
+    }
+
+    public function test_response_macro_accepts_key_and_value()
+    {
+        $response = response()->view('index')->js('foo', 'bar');
+
+        $this->assertInstanceOf(Response::class, $response);
+        $this->assertSame('bar', $this->store->data()->get('foo'));
+    }
+
+    public function test_response_macro_accepts_array()
+    {
+        $response = response()->view('index')->js([
+            'foo' => 'bar',
+        ]);
+
+        $this->assertInstanceOf(Response::class, $response);
+        $this->assertSame('bar', $this->store->data()->get('foo'));
+    }
+
+    public function test_response_macro_throws_error_for_json_response()
+    {
+        $this->expectException(InvalidResponseException::class);
+
+        response('FooBar')->js('baz', 'fred');
     }
 }

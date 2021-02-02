@@ -23,6 +23,13 @@ class Store implements Jsonable, Arrayable
         return $this;
     }
 
+    public function merge(array $data): self
+    {
+        $this->data = $this->data->merge($data);
+
+        return $this;
+    }
+
     public function data(): Collection
     {
         return $this->data;
