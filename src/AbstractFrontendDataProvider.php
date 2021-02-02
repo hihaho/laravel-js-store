@@ -10,7 +10,7 @@ abstract class AbstractFrontendDataProvider
     /**
      * @var string Optional key that will be used when this provider is json encoded
      */
-    protected $key;
+    protected string $key;
 
     /**
      * The data that will be JSON encoded
@@ -19,12 +19,12 @@ abstract class AbstractFrontendDataProvider
      */
     abstract public function data();
 
-    public function store()
+    public function store(): void
     {
         app()->make('js-store')->put($this->key(), $this->data());
     }
 
-    protected function key()
+    protected function key(): string
     {
         if (isset($this->key)) {
             return $this->key;

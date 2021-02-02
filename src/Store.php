@@ -9,7 +9,7 @@ use Illuminate\Support\Collection;
 
 class Store implements Jsonable, Arrayable
 {
-    protected $data;
+    protected Collection $data;
 
     public function __construct()
     {
@@ -28,12 +28,7 @@ class Store implements Jsonable, Arrayable
         return $this->data;
     }
 
-    /**
-     * Get the instance as an array.
-     *
-     * @return array
-     */
-    public function toArray()
+    public function toArray(): array
     {
         return $this->data->toArray();
     }
@@ -45,7 +40,7 @@ class Store implements Jsonable, Arrayable
      * @return string
      * @throws \Exception
      */
-    public function toJson($options = 0)
+    public function toJson($options = 0): string
     {
         $json = json_encode($this->data, $options);
 
@@ -61,7 +56,7 @@ class Store implements Jsonable, Arrayable
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->toJson();
     }

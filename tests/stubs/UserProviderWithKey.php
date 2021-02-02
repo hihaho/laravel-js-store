@@ -8,7 +8,7 @@ use HiHaHo\LaravelJsStore\AbstractFrontendDataProvider;
 
 class UserProviderWithKey extends AbstractFrontendDataProvider
 {
-    protected $key = 'unit-test-user';
+    protected string $key = 'unit-test-user';
 
     /**
      * The data that will be JSON encoded

@@ -12,28 +12,28 @@ class MakeFrontendDataProviderCommand extends GeneratorCommand
      *
      * @var string
      */
-    protected $name = 'make:frontend-data-provider';
+    protected string $name = 'make:frontend-data-provider';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create a new frontend data provider class';
+    protected string $description = 'Create a new frontend data provider class';
 
     /**
      * The type of class being generated.
      *
      * @var string
      */
-    protected $type = 'FrontendDataProvider';
+    protected string $type = 'FrontendDataProvider';
 
     /**
      * Get the stub file for the generator.
      *
      * @return string
      */
-    protected function getStub()
+    protected function getStub(): string
     {
         return __DIR__.'/stubs/frontend-data-provider.stub';
     }
@@ -44,7 +44,7 @@ class MakeFrontendDataProviderCommand extends GeneratorCommand
      * @param  string $rootNamespace
      * @return string
      */
-    protected function getDefaultNamespace($rootNamespace)
+    protected function getDefaultNamespace($rootNamespace): string
     {
         return $rootNamespace.'\Http\FrontendDataProviders';
     }
