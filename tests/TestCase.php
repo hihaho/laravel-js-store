@@ -11,10 +11,9 @@ use Orchestra\Testbench\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
 {
-    /** @var Store */
-    protected $store;
+    protected Store $store;
 
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [
             ServiceProvider::class,
@@ -34,7 +33,7 @@ class TestCase extends BaseTestCase
      * @param  \Illuminate\Foundation\Application  $app
      * @return void
      */
-    protected function getEnvironmentSetUp($app)
+    protected function getEnvironmentSetUp($app): void
     {
         $app['config']->set('js-store.data-providers', [
             ValidDataProvider::class,
