@@ -143,7 +143,11 @@ Your data will now automatically be rendered in blade views (in this case only w
 ### Usage with Laravel Octane
 
 This package registers a singleton to manage all data that's sent to the JS Store.
-Laravel Octane will only register one instance when you push data within a service provider.
+Laravel Octane will register one instance per request, but only when the singleton is not accessed inside a service provider.
+For this reason it's not possible to push data to the store within a service provider.
+
+Generally it won't be nesecarry to flush all data between requests, but if you need this behaviour you can flush the data between requests.
+Any data that is pushed within a service provider won't be available in requests.
 To flush the data between requests you should add the `PrepareStoreForNextOperation::class` listener to the following Octane events in `config/octane.php`:
 - `RequestReceived::class`
 - `TaskReceived::clas`
