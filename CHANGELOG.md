@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-js-store` will be documented in this file
 
+## 2.0.1 - 2021-07-01
+- Fix PrepareStoreForNextOperation and update notes about Octane
+
 ## 2.0.0 - 2021-07-01
 - Drop support for Laravel 6
 - Drop support for PHP 7.2 and 7.3
