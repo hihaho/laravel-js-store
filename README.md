@@ -140,6 +140,38 @@ Next, register you data-provider in `config/js-store.php`:
 
 Your data will now automatically be rendered in blade views (in this case only when the user is signed in).
 
+### Usage with Laravel Octane
+
+This package registers a singleton to manage all data that's sent to the JS Store.
+Laravel Octane will only register one instance when you push data within a service provider.
+To flush the data between requests you should add the `PrepareStoreForNextOperation::class` listener to the following Octane events in `config/octane.php`:
+- `RequestReceived::class`
+- `TaskReceived::clas`
+- `TickReceived::class`
+
+```php
+use HiHaHo\LaravelJsStore\Octane\PrepareStoreForNextOperation;
+
+return [
+    // ...
+
+    'listeners' => [
+        RequestReceived::class => [
+            // ...
+            PrepareStoreForNextOperation::class,
+        ],
+        TaskReceived::class => [
+            // ...
+            PrepareStoreForNextOperation::class,
+        ],
+        TickReceived::class => [
+            // ...
+            PrepareStoreForNextOperation::class,
+        ],
+    ]
+];
+```
+
 ### Testing
 
 ``` bash

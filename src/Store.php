@@ -67,4 +67,9 @@ class Store implements Jsonable, Arrayable
     {
         return $this->toJson();
     }
+
+    public function flushShared(): void
+    {
+        $this->data = new Collection;
+    }
 }
