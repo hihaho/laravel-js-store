@@ -13,7 +13,7 @@ class UserFrontendDataProvider extends AbstractFrontendDataProvider
      *
      * @return mixed
      */
-    public function data()
+    public function data(): array
     {
         return [];
     }

@@ -14,7 +14,7 @@ use Illuminate\Support\Collection;
 
 class DataProviderCollectionTest extends TestCase
 {
-    public function test_invalid_data_providers_config()
+    public function test_invalid_data_providers_config(): void
     {
         $this->app['config']->set('js-store.test', 'broken');
 
@@ -23,7 +23,7 @@ class DataProviderCollectionTest extends TestCase
         $this->assertFalse($providers->hasData());
     }
 
-    public function test_empty_data_providers_config()
+    public function test_empty_data_providers_config(): void
     {
         $this->app['config']->set('js-store.test', []);
 
@@ -32,7 +32,7 @@ class DataProviderCollectionTest extends TestCase
         $this->assertFalse($providers->hasData());
     }
 
-    public function test_invalid_data_provider()
+    public function test_invalid_data_provider(): void
     {
         $this->app['config']->set('js-store.test', [
             InvalidDataProvider::class,
@@ -43,7 +43,7 @@ class DataProviderCollectionTest extends TestCase
         $this->assertFalse($providers->hasData());
     }
 
-    public function test_valid_data_provider()
+    public function test_valid_data_provider(): void
     {
         $this->app['config']->set('js-store.test', [
             ValidDataProvider::class,
@@ -54,7 +54,7 @@ class DataProviderCollectionTest extends TestCase
         $this->assertTrue($providers->hasData());
     }
 
-    public function test_empty_data_provider()
+    public function test_empty_data_provider(): void
     {
         $this->app['config']->set('js-store.test', [
             ValidEmptyDataProvider::class,
@@ -65,7 +65,7 @@ class DataProviderCollectionTest extends TestCase
         $this->assertFalse($providers->hasData());
     }
 
-    public function test_invalid_config()
+    public function test_invalid_config(): void
     {
         $this->app['config']->set('js-store.test', ValidDataProvider::class);
 
@@ -74,7 +74,7 @@ class DataProviderCollectionTest extends TestCase
         $this->assertFalse($providers->hasData());
     }
 
-    public function test_provider_stores_data()
+    public function test_provider_stores_data(): void
     {
         $this->app['config']->set('js-store.test', [
             ValidDataProvider::class,

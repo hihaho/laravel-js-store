@@ -15,7 +15,7 @@ class ValidDataProvider extends AbstractFrontendDataProvider
      *
      * @return mixed
      */
-    public function data()
+    public function data(): string
     {
         return self::DATA;
     }

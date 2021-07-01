@@ -11,7 +11,7 @@ use Illuminate\View\View;
 
 class StoreTest extends TestCase
 {
-    public function test_store_is_single_instance()
+    public function test_store_is_single_instance(): void
     {
         $store = $this->app->make(Store::class);
         $helperStore = frontend_store();
@@ -21,7 +21,7 @@ class StoreTest extends TestCase
         $this->assertSame($store, $aliasStore);
     }
 
-    public function test_helper_can_store_data()
+    public function test_helper_can_store_data(): void
     {
         frontend_store('user', true);
 
@@ -30,7 +30,7 @@ class StoreTest extends TestCase
         $this->assertTrue($this->store->data()->get('user'));
     }
 
-    public function test_store_has_data()
+    public function test_store_has_data(): void
     {
         $this->store->put('user', true);
 
@@ -39,7 +39,7 @@ class StoreTest extends TestCase
         $this->assertTrue($this->store->data()->get('user'));
     }
 
-    public function test_store_returns_json()
+    public function test_store_returns_json(): void
     {
         $this->store->put('user', true);
 
@@ -50,7 +50,7 @@ class StoreTest extends TestCase
         ]), $this->store->toJson());
     }
 
-    public function test_store_is_stringable()
+    public function test_store_is_stringable(): void
     {
         $this->store->put('user', true);
 
@@ -59,7 +59,7 @@ class StoreTest extends TestCase
         $this->assertJson((string) frontend_store());
     }
 
-    public function test_store_throws_exception_with_non_stringable_object()
+    public function test_store_throws_exception_with_non_stringable_object(): void
     {
         $this->expectException(JsonEncodeStoreDataException::class);
 

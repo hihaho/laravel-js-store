@@ -6,23 +6,30 @@ use HiHaHo\LaravelJsStore\Console\MakeFrontendDataProviderCommand;
 use HiHaHo\LaravelJsStore\Exceptions\InvalidResponseException;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Illuminate\View\View;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class ServiceProvider extends BaseServiceProvider
+class ServiceProvider extends PackageServiceProvider
 {
-    /**
-     * Bootstrap the application services.
-     */
-    public function boot()
+    public function configurePackage(Package $package): void
     {
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'js-store');
+        $package
+            ->name('js-store')
+            ->hasConfigFile()
+            ->hasViews()
+            ->hasCommands([
+                MakeFrontendDataProviderCommand::class,
+            ]);
+    }
 
+    public function packageBooted(): void
+    {
         Blade::include('js-store::script', 'frontend_store');
 
-        $this->bindDataProviders();
+        View::macro('js', function ($key, $value = null): View {
+            /** @var View $this */
 
-        View::macro('js', function ($key, $value = null) {
             $data = is_array($key) ? $key : [$key => $value];
 
             app(Store::class)->merge($data);
@@ -30,7 +37,9 @@ class ServiceProvider extends BaseServiceProvider
             return $this;
         });
 
-        Response::macro('js', function ($key, $value = null) {
+        Response::macro('js', function ($key, $value = null): Response {
+            /** @var Response $this */
+
             if (! $this->getOriginalContent() instanceof View) {
                 throw new InvalidResponseException('Response must be rendered using a View.');
             }
@@ -42,44 +51,22 @@ class ServiceProvider extends BaseServiceProvider
             return $this;
         });
 
-        if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('js-store.php'),
-            ], 'laravel-js-store-config');
-
-            $this->publishes([
-                __DIR__.'/../resources/views' => resource_path('views/vendor/js-store'),
-            ], 'laravel-js-store-views');
-
-            $this->commands([
-                MakeFrontendDataProviderCommand::class,
-            ]);
-        }
-    }
-
-    /**
-     * Register the application services.
-     */
-    public function register()
-    {
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'js-store');
-
-        $this->app->singleton(Store::class, function () {
-            return new Store;
-        });
-        $this->app->alias(Store::class, 'js-store');
-    }
-
-    protected function bindDataProviders()
-    {
-        view()->composer('js-store::script', function () {
+        view()->composer('js-store::script', function (): void {
             $providers = DataProviderCollection::fromConfig('js-store.data-providers');
 
-            if (!$providers->hasData()) {
+            if (! $providers->hasData()) {
                 return;
             }
 
             $providers->store();
         });
+    }
+
+    public function packageRegistered(): void
+    {
+        $this->app->singleton(Store::class, function (): Store {
+            return new Store;
+        });
+        $this->app->alias(Store::class, 'js-store');
     }
 }

@@ -1,22 +1,23 @@
 <?php
 
+use HiHaHo\LaravelJsStore\Store;
+
 if (! function_exists('frontend_store')) {
     /**
      * Set the specified value from the front-end store or get the front-end store.
      *
      * If a key and value are passed, we'll assume you want to put to the vue-store.
      *
-     * @param  dynamic  key,value|null
+     * @param  string|null $key
+     * @param  mixed|null $value
      * @return \HiHaHo\LaravelJsStore\Store
      */
-    function frontend_store()
+    function frontend_store(string $key = null, $value = null): Store
     {
-        $arguments = func_get_args();
-
-        if (empty($arguments)) {
-            return app('js-store');
+        if (is_null($key)) {
+            return app(Store::class);
         }
 
-        return app('js-store')->put($arguments[0], $arguments[1]);
+        return app(Store::class)->put($key, $value);
     }
 }

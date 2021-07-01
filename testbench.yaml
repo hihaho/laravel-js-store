@@ -1,0 +1,2 @@
+providers:
+  - HiHaHo\LaravelJsStore\ServiceProvider

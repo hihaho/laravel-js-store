@@ -12,7 +12,7 @@ use Illuminate\Support\Collection;
 
 class DataProviderTest extends TestCase
 {
-    public function test_provider_generates_key_from_base_name()
+    public function test_provider_generates_key_from_base_name(): void
     {
         $validDataProvider = $this->app->make(SomeRandomName::class);
 
@@ -24,7 +24,7 @@ class DataProviderTest extends TestCase
         $this->assertTrue($storeData->contains('some-random-name', []));
     }
 
-    public function test_provider_generates_key_from_class_with_data_provider_suffix()
+    public function test_provider_generates_key_from_class_with_data_provider_suffix(): void
     {
         $validDataProvider = $this->app->make(ValidDataProvider::class);
 
@@ -36,7 +36,7 @@ class DataProviderTest extends TestCase
         $this->assertTrue($storeData->contains('valid', []));
     }
 
-    public function test_provider_generates_key_from_class_with_frontend_data_provider_suffix()
+    public function test_provider_generates_key_from_class_with_frontend_data_provider_suffix(): void
     {
         $validDataProvider = $this->app->make(UserFrontendDataProvider::class);
 
@@ -48,7 +48,7 @@ class DataProviderTest extends TestCase
         $this->assertTrue($storeData->contains('user', []));
     }
 
-    public function test_provider_uses_key_property()
+    public function test_provider_uses_key_property(): void
     {
         $validDataProvider = $this->app->make(UserProviderWithKey::class);
 

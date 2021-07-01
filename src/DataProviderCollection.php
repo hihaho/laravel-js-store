@@ -7,18 +7,18 @@ use Illuminate\Support\Collection;
 
 class DataProviderCollection
 {
-    /**
-     * @var Collection
-     */
-    protected $items;
+    protected Collection $items;
 
     public function __construct(array $providers)
     {
-        $this->items = collect($providers)->map(function (string $provider) {
-            return app()->make($provider);
-        })->filter(function ($provider) {
-            return $provider instanceof AbstractFrontendDataProvider;
-        })->filter->hasData();
+        $this->items = collect($providers)
+            ->map(function (string $provider) {
+                return app()->make($provider);
+            })
+            ->filter(function ($provider): bool {
+                return $provider instanceof AbstractFrontendDataProvider;
+            })
+            ->filter->hasData();
     }
 
     public static function fromConfig(string $configPath): self
@@ -32,7 +32,7 @@ class DataProviderCollection
         return new self($data);
     }
 
-    public function store()
+    public function store(): void
     {
         $this->items->each->store();
     }
