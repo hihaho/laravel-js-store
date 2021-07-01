@@ -2,6 +2,8 @@
 
 namespace HiHaHo\LaravelJsStore\Octane;
 
+use HiHaHo\LaravelJsStore\Store;
+
 class PrepareStoreForNextOperation
 {
     /**
