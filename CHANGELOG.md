@@ -2,7 +2,7 @@
 
 All notable changes to `laravel-js-store` will be documented in this file
 
-## [Unreleased]
+## 2.0.0 - 2021-07-01
 - Drop support for Laravel 6
 - Drop support for PHP 7.2 and 7.3
 - Add support for Laravel Octane
