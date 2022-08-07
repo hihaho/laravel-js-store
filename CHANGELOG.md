@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-js-store` will be documented in this file
 
+## 2.1.0 - 2022-08-07
+- Add support for Laravel 9
+
 ## 2.0.1 - 2021-07-01
 - Fix PrepareStoreForNextOperation and update notes about Octane
 

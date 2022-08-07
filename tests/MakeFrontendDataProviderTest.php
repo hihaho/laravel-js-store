@@ -21,7 +21,7 @@ class MakeFrontendDataProviderCommandTest extends TestCase
         $this->assertFalse(File::exists($provider));
 
         $this->artisan('make:frontend-data-provider', ['name' => 'Test'])
-            ->expectsOutput('FrontendDataProvider created successfully.')
+            ->expectsOutputToContain('FrontendDataProvider created successfully.')
             ->expectsConfirmation("Generated key: $key, would you like to use a custom key?")
             ->assertExitCode(0);
 
@@ -65,7 +65,7 @@ CLASS;
         $this->assertFalse(File::exists($provider));
 
         $this->artisan('make:frontend-data-provider', ['name' => 'Test'])
-            ->expectsOutput('FrontendDataProvider created successfully.')
+            ->expectsOutputToContain('FrontendDataProvider created successfully.')
             ->expectsConfirmation("Generated key: $key, would you like to use a custom key?", 'yes')
             ->expectsQuestion('Custom key', '')
             ->assertExitCode(0);
@@ -112,7 +112,7 @@ CLASS;
         $this->assertFalse(File::exists($provider));
 
         $this->artisan('make:frontend-data-provider', ['name' => 'Test'])
-            ->expectsOutput('FrontendDataProvider created successfully.')
+            ->expectsOutputToContain('FrontendDataProvider created successfully.')
             ->expectsConfirmation("Generated key: $key, would you like to use a custom key?", 'yes')
             ->expectsQuestion('Custom key', 'custom-key')
             ->assertExitCode(0);
