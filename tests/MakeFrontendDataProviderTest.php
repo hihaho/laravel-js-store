@@ -20,10 +20,17 @@ class MakeFrontendDataProviderCommandTest extends TestCase
 
         $this->assertFalse(File::exists($provider));
 
-        $this->artisan('make:frontend-data-provider', ['name' => 'Test'])
-            ->expectsOutput('FrontendDataProvider created successfully.')
+        $command = $this->artisan('make:frontend-data-provider', ['name' => 'Test'])
             ->expectsConfirmation("Generated key: $key, would you like to use a custom key?")
             ->assertExitCode(0);
+
+        if (method_exists($command, 'expectsOutputToContain')) {
+            $command->expectsOutputToContain('FrontendDataProvider created successfully.');
+        } else {
+            $command->expectsOutput('FrontendDataProvider created successfully.');
+        }
+
+        $command->run();
 
         $this->assertTrue(File::exists($provider));
 
@@ -64,13 +71,20 @@ CLASS;
 
         $this->assertFalse(File::exists($provider));
 
-        $this->artisan('make:frontend-data-provider', ['name' => 'Test'])
-            ->expectsOutput('FrontendDataProvider created successfully.')
+        $command = $this->artisan('make:frontend-data-provider', ['name' => 'Test'])
             ->expectsConfirmation("Generated key: $key, would you like to use a custom key?", 'yes')
             ->expectsQuestion('Custom key', '')
             ->assertExitCode(0);
 
-            $this->assertTrue(File::exists($provider));
+        if (method_exists($command, 'expectsOutputToContain')) {
+            $command->expectsOutputToContain('FrontendDataProvider created successfully.');
+        } else {
+            $command->expectsOutput('FrontendDataProvider created successfully.');
+        }
+
+        $command->run();
+
+        $this->assertTrue(File::exists($provider));
 
         $expectedContents = <<<CLASS
 <?php
@@ -111,11 +125,18 @@ CLASS;
 
         $this->assertFalse(File::exists($provider));
 
-        $this->artisan('make:frontend-data-provider', ['name' => 'Test'])
-            ->expectsOutput('FrontendDataProvider created successfully.')
+        $command = $this->artisan('make:frontend-data-provider', ['name' => 'Test'])
             ->expectsConfirmation("Generated key: $key, would you like to use a custom key?", 'yes')
             ->expectsQuestion('Custom key', 'custom-key')
             ->assertExitCode(0);
+
+        if (method_exists($command, 'expectsOutputToContain')) {
+            $command->expectsOutputToContain('FrontendDataProvider created successfully.');
+        } else {
+            $command->expectsOutput('FrontendDataProvider created successfully.');
+        }
+
+        $command->run();
 
         $this->assertTrue(File::exists($provider));
 
