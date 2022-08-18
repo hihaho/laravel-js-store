@@ -1,9 +1,9 @@
 # Laravel JS Store
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/hihaho/laravel-js-store.svg?style=flat-square)](https://packagist.org/packages/hihaho/laravel-js-store)
-[![Build Status](https://img.shields.io/travis/hihaho/laravel-js-store/master.svg?style=flat-square)](https://travis-ci.org/hihaho/laravel-js-store)
-[![Quality Score](https://img.shields.io/scrutinizer/g/hihaho/laravel-js-store.svg?style=flat-square)](https://scrutinizer-ci.com/g/hihaho/laravel-js-store)
-[![Total Downloads](https://img.shields.io/packagist/dt/hihaho/laravel-js-store.svg?style=flat-square)](https://packagist.org/packages/hihaho/laravel-js-store)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/hihaho/laravel-js-store.svg?style=flat)](https://packagist.org/packages/hihaho/laravel-js-store)
+[![Build Status](https://github.com/hihaho/laravel-js-store/actions/workflows/run-tests.yml/badge.svg?branch=master)](https://github.com/hihaho/hihaho/laravel-js-store)
+[![Quality Score](https://img.shields.io/scrutinizer/g/hihaho/laravel-js-store.svg?style=flat)](https://scrutinizer-ci.com/g/hihaho/laravel-js-store)
+[![Total Downloads](https://img.shields.io/packagist/dt/hihaho/laravel-js-store.svg?style=flat)](https://packagist.org/packages/hihaho/laravel-js-store)
 
 Easily pass data to your view to create an initial state for your frontend.
 This package let's your easily create and register global data providers (for each page), which for example is useful for user data.
