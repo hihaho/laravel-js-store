@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-js-store` will be documented in this file
 
+## 3.0.0 - 2022-08-07
+- Add support for Laravel 10
+- Drop support for Laravel 7
+- Drop support for PHP 7.4
+
 ## 2.1.0 - 2022-08-07
 - Add support for Laravel 9
 
