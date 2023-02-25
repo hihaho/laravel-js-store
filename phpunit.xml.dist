@@ -3,14 +3,10 @@
          xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.0/phpunit.xsd"
          bootstrap="vendor/autoload.php"
          backupGlobals="false"
-         backupStaticAttributes="false"
          colors="true"
-         verbose="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
          processIsolation="false"
-         stopOnFailure="false">
+         stopOnFailure="false"
+         backupStaticProperties="false">
     <testsuites>
         <testsuite name="Test Suite">
             <directory>tests</directory>
