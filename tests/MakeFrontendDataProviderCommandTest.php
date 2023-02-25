@@ -20,7 +20,7 @@ class MakeFrontendDataProviderCommandTest extends TestCase
 
         $this->assertFalse(File::exists($provider));
 
-        $expectedOutput = version_compare($this->app->version(), '10.0.0', '>=')
+        $expectedOutput = version_compare($this->app->version(), '9.32.0', '>=')
             ? 'FrontendDataProvider [app/Http/FrontendDataProviders/Test.php] created successfully.'
             : 'FrontendDataProvider created successfully.';
 
@@ -69,7 +69,7 @@ CLASS;
 
         $this->assertFalse(File::exists($provider));
 
-        $expectedOutput = version_compare($this->app->version(), '10.0.0', '>=')
+        $expectedOutput = version_compare($this->app->version(), '9.32.0', '>=')
             ? 'FrontendDataProvider [app/Http/FrontendDataProviders/Test.php] created successfully.'
             : 'FrontendDataProvider created successfully.';
 
@@ -121,7 +121,7 @@ CLASS;
 
         $this->assertFalse(File::exists($provider));
 
-        $expectedOutput = version_compare($this->app->version(), '10.0.0', '>=')
+        $expectedOutput = version_compare($this->app->version(), '9.32.0', '>=')
             ? 'FrontendDataProvider [app/Http/FrontendDataProviders/Test.php] created successfully.'
             : 'FrontendDataProvider created successfully.';
 
