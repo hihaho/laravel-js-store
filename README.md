@@ -14,7 +14,7 @@ You can also manually push data on the fly, for example in a controller.
 You can install the package via composer:
 
 ```bash
-composer require hihaho/laravel-js-store:^1.0
+composer require hihaho/laravel-js-store:^3.0
 ```
 
 Next you should render the js data on your page, there are a few different ways to do this:
@@ -146,7 +146,7 @@ This package registers a singleton to manage all data that's sent to the JS Stor
 Laravel Octane will register one instance per request, but only when the singleton is not accessed inside a service provider.
 For this reason it's not possible to push data to the store within a service provider.
 
-Generally it won't be nesecarry to flush all data between requests, but if you need this behaviour you can flush the data between requests.
+Generally it won't be necessary to flush all data between requests, but if you need this behaviour you can flush the data between requests.
 Any data that is pushed within a service provider won't be available in requests.
 To flush the data between requests you should add the `PrepareStoreForNextOperation::class` listener to the following Octane events in `config/octane.php`:
 - `RequestReceived::class`
