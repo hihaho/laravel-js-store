@@ -1,6 +1,15 @@
 name: run-tests
 
-on: [push, pull_request]
+on:
+    pull_request:
+        types:
+            - opened
+            - synchronize
+            - ready_for_review
+
+    push:
+
+    workflow_dispatch:
 
 jobs:
   test:
