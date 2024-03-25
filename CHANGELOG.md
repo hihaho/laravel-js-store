@@ -2,7 +2,13 @@
 
 All notable changes to `laravel-js-store` will be documented in this file
 
-## 3.1.0 - 2024-08-01
+## 4.0.0 - 2024-03-25
+- Add support for Laravel 11
+- Add support for PHP 8.3
+- Drop support for Laravel 9
+- Drop support for PHP 8.0
+
+## 3.1.0 - 2024-01-08
 - Render store data in the DOM using the @json blade directive
 
 ## 3.0.0 - 2023-03-01
