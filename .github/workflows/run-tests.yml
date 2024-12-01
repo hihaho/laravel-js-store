@@ -24,10 +24,10 @@ jobs:
         exclude:
             -   laravel: ^10.48.23
                 php: 8.4
-            -   laravel: 10.*
-                testbench: 9.*
-            -   laravel: 11.*
-                testbench: 8.*
+            -   laravel: ^10.48.23
+                testbench: ^9.6
+            -   laravel: ^11.31
+                testbench: ^8.28
 
     name: PHP${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }}
 
