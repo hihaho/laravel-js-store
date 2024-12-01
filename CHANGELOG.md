@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-js-store` will be documented in this file
 
+## 4.1.0 - 2024-03-25
+- Add support for PHP 8.4
+- Fixed some typo's
+- Corrected the Copyright owner in the LICENSE file
+- Update supported Laravel versions to exclude versions with a known CVE
+
 ## 4.0.0 - 2024-03-25
 - Add support for Laravel 11
 - Add support for PHP 8.3
