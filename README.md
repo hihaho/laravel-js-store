@@ -6,7 +6,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/hihaho/laravel-js-store.svg?style=flat)](https://packagist.org/packages/hihaho/laravel-js-store)
 
 Easily pass data to your view to create an initial state for your frontend.
-This package let's your easily create and register global data providers (for each page), which for example is useful for user data.
+This package lets you easily create and register global data providers (for each page), which for example is useful for user data.
 You can also manually push data on the fly, for example in a controller.
 
 ## Installation
@@ -14,7 +14,7 @@ You can also manually push data on the fly, for example in a controller.
 You can install the package via composer:
 
 ```bash
-composer require hihaho/laravel-js-store:^4.0
+composer require hihaho/laravel-js-store:^5.0
 ```
 
 Next you should render the js data on your page, there are a few different ways to do this:

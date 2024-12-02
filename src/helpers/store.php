@@ -12,7 +12,7 @@ if (! function_exists('frontend_store')) {
      * @param  mixed|null $value
      * @return \HiHaHo\LaravelJsStore\Store
      */
-    function frontend_store(string $key = null, $value = null): Store
+    function frontend_store(?string $key = null, $value = null): Store
     {
         if (is_null($key)) {
             return app(Store::class);
