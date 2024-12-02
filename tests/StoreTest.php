@@ -1,6 +1,5 @@
 <?php
 
-
 namespace HiHaHo\LaravelJsStore\Tests;
 
 use HiHaHo\LaravelJsStore\Exceptions\InvalidResponseException;

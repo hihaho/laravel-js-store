@@ -1,6 +1,5 @@
 <?php
 
-
 namespace HiHaHo\LaravelJsStore;
 
 use Illuminate\Support\Collection;
@@ -25,7 +24,7 @@ class DataProviderCollection
     {
         $data = config($configPath, []);
 
-        if (!is_array($data)) {
+        if (! is_array($data)) {
             $data = [];
         }
 

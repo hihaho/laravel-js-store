@@ -1,6 +1,5 @@
 <?php
 
-
 namespace HiHaHo\LaravelJsStore;
 
 use Illuminate\Support\Str;

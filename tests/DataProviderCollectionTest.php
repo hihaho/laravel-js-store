@@ -1,12 +1,8 @@
 <?php
 
-
 namespace HiHaHo\LaravelJsStore\Tests;
 
-
 use HiHaHo\LaravelJsStore\DataProviderCollection;
-use HiHaHo\LaravelJsStore\Exceptions\JsonEncodeStoreDataException;
-use HiHaHo\LaravelJsStore\Store;
 use HiHaHo\LaravelJsStore\Tests\stubs\InvalidDataProvider;
 use HiHaHo\LaravelJsStore\Tests\stubs\ValidDataProvider;
 use HiHaHo\LaravelJsStore\Tests\stubs\ValidEmptyDataProvider;

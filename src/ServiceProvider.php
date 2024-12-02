@@ -29,7 +29,6 @@ class ServiceProvider extends PackageServiceProvider
 
         View::macro('js', function ($key, $value = null): View {
             /** @var View $this */
-
             $data = is_array($key) ? $key : [$key => $value];
 
             app(Store::class)->merge($data);
@@ -39,7 +38,6 @@ class ServiceProvider extends PackageServiceProvider
 
         Response::macro('js', function ($key, $value = null): Response {
             /** @var Response $this */
-
             if (! $this->getOriginalContent() instanceof View) {
                 throw new InvalidResponseException('Response must be rendered using a View.');
             }

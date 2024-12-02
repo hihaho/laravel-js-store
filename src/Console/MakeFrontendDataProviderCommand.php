@@ -1,9 +1,7 @@
 <?php
 
-
 namespace HiHaHo\LaravelJsStore\Console;
 
-use Exception;
 use HiHaHo\LaravelJsStore\AbstractFrontendDataProvider;
 use Illuminate\Console\GeneratorCommand;
 use Symfony\Component\Console\Input\InputOption;
@@ -33,8 +31,6 @@ class MakeFrontendDataProviderCommand extends GeneratorCommand
 
     /**
      * Get the stub file for the generator.
-     *
-     * @return string
      */
     protected function getStub(): string
     {
@@ -44,8 +40,7 @@ class MakeFrontendDataProviderCommand extends GeneratorCommand
     /**
      * Get the default namespace for the class.
      *
-     * @param  string $rootNamespace
-     * @return string
+     * @param  string  $rootNamespace
      */
     protected function getDefaultNamespace($rootNamespace): string
     {
@@ -60,9 +55,9 @@ class MakeFrontendDataProviderCommand extends GeneratorCommand
         if ($this->confirm("Generated key: $generatedKey, would you like to use a custom key?")) {
             $customKey = $this->ask('Custom key');
 
-            $replacement = $customKey === '' ? "protected string \$key;" : "protected string \$key = '$customKey';";
+            $replacement = $customKey === '' ? 'protected string $key;' : "protected string \$key = '$customKey';";
 
-            $stub = str_replace("{{ CUSTOM_KEY }}", $replacement, $stub);
+            $stub = str_replace('{{ CUSTOM_KEY }}', $replacement, $stub);
         } else {
             $stub = str_replace("    {{ CUSTOM_KEY }}\n\n", '', $stub);
         }

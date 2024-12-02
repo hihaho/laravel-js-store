@@ -3,7 +3,6 @@
 namespace HiHaHo\LaravelJsStore\Tests;
 
 use HiHaHo\LaravelJsStore\AbstractFrontendDataProvider;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 
 class MakeFrontendDataProviderCommandTest extends TestCase

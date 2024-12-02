@@ -1,8 +1,6 @@
 <?php
 
-
 namespace HiHaHo\LaravelJsStore\Tests;
-
 
 use HiHaHo\LaravelJsStore\ServiceProvider;
 use HiHaHo\LaravelJsStore\Store;
@@ -34,7 +32,6 @@ class TestCase extends BaseTestCase
      * Define environment setup.
      *
      * @param  \Illuminate\Foundation\Application  $app
-     * @return void
      */
     protected function getEnvironmentSetUp($app): void
     {
