@@ -2,12 +2,14 @@
 
 All notable changes to `laravel-js-store` will be documented in this file
 
-## 5.0.0 - 2024-03-25
-- Add support for PHP 8.4
-- Drop support for PHP 8.1
-- Fixed some typo's
-- Corrected the Copyright owner in the LICENSE file
-- Update supported Laravel versions to exclude versions with a known CVE
+## 5.0.0 - 2024-12-03
+* Add support for PHP 8.4 by @SanderMuller in https://github.com/hihaho/laravel-js-store/pull/12
+  * Add support for PHP 8.4
+  * Drop support for PHP 8.1
+  * Fixed some typo's
+  * Corrected the Copyright owner in the LICENSE file
+  * Update supported Laravel versions to exclude versions with a known CVE
+* Introduce Pint and automatic changelogs by @RobertBoes in https://github.com/hihaho/laravel-js-store/pull/13
 
 ## 4.0.0 - 2024-03-25
 - Add support for Laravel 11
