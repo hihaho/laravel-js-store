@@ -7,7 +7,7 @@ use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Support\Collection;
 
-class Store implements Jsonable, Arrayable
+class Store implements Arrayable, Jsonable
 {
     protected Collection $data;
 
@@ -43,16 +43,16 @@ class Store implements Jsonable, Arrayable
     /**
      * Convert the object to its JSON representation.
      *
-     * @param  int $options
-     * @return string
+     * @param  int  $options
+     *
      * @throws \Exception
      */
     public function toJson($options = 0): string
     {
         $json = json_encode($this->data, $options);
 
-        if (JSON_ERROR_NONE !== json_last_error()) {
-            throw new JsonEncodeStoreDataException('Unable to encode store data: '. json_last_error_msg());
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            throw new JsonEncodeStoreDataException('Unable to encode store data: '.json_last_error_msg());
         }
 
         return $json;
@@ -60,8 +60,6 @@ class Store implements Jsonable, Arrayable
 
     /**
      * Convert the store to its string representation.
-     *
-     * @return string
      */
     public function __toString(): string
     {

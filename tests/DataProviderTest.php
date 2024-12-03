@@ -1,8 +1,6 @@
 <?php
 
-
 namespace HiHaHo\LaravelJsStore\Tests;
-
 
 use HiHaHo\LaravelJsStore\Tests\stubs\SomeRandomName;
 use HiHaHo\LaravelJsStore\Tests\stubs\UserFrontendDataProvider;
