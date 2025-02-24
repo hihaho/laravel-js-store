@@ -22,7 +22,7 @@ jobs:
         dependency-version: [prefer-lowest, prefer-stable]
         testbench: [^9.6, ^10.0]
         exclude:
-            -   laravel: ^11.0
+            -   laravel: ^11.31
                 testbench: ^10.0
             -   laravel: ^12.0
                 testbench: ^9.6
