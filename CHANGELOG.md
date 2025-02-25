@@ -2,11 +2,17 @@
 
 All notable changes to `laravel-js-store` will be documented in this file
 
+## 5.1.0 - 2025-02-25
+* Add support for Laravel 12 by @SanderMuller in https://github.com/hihaho/laravel-js-store/pull/14
+* Update PHPUnit to 11.0
+* Drop support for Laravel 10
+* Fix PHP constraint in `composer.json`
+
 ## 5.0.0 - 2024-12-03
 * Add support for PHP 8.4 by @SanderMuller in https://github.com/hihaho/laravel-js-store/pull/12
   * Add support for PHP 8.4
   * Drop support for PHP 8.1
-  * Fixed some typo's
+  * Fixed some typos
   * Corrected the Copyright owner in the LICENSE file
   * Update supported Laravel versions to exclude versions with a known CVE
 * Introduce Pint and automatic changelogs by @RobertBoes in https://github.com/hihaho/laravel-js-store/pull/13
