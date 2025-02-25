@@ -22,9 +22,9 @@
         "spatie/laravel-package-tools": "^1.14"
     },
     "require-dev": {
-        "laravel/pint": "^1.18",
+        "laravel/pint": "^1.21",
         "orchestra/testbench": "^9.6|^10.0",
-        "phpunit/phpunit": "^10.0",
+        "phpunit/phpunit": "^11.5",
         "roave/security-advisories": "dev-latest"
     },
     "autoload": {
