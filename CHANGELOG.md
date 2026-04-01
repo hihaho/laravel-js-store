@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-js-store` will be documented in this file
 
+## 5.2.0 - 2026-04-01
+* Add support for Laravel 13
+* Drop support for Laravel 11
+
 ## 5.1.0 - 2025-02-25
 * Add support for Laravel 12 by @SanderMuller in https://github.com/hihaho/laravel-js-store/pull/14
 * Update PHPUnit to 11.0

@@ -5,6 +5,7 @@ namespace HiHaHo\LaravelJsStore\Tests;
 use HiHaHo\LaravelJsStore\ServiceProvider;
 use HiHaHo\LaravelJsStore\Store;
 use HiHaHo\LaravelJsStore\Tests\stubs\ValidDataProvider;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\View;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
@@ -31,7 +32,7 @@ class TestCase extends BaseTestCase
     /**
      * Define environment setup.
      *
-     * @param  \Illuminate\Foundation\Application  $app
+     * @param  Application  $app
      */
     protected function getEnvironmentSetUp($app): void
     {
