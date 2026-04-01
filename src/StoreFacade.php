@@ -5,7 +5,7 @@ namespace HiHaHo\LaravelJsStore;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \HiHaHo\LaravelJsStore\Store
+ * @see Store
  */
 class StoreFacade extends Facade
 {
