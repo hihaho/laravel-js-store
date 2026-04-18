@@ -50,3 +50,21 @@ jobs:
 
       - name: Execute tests
         run: vendor/bin/phpunit
+
+  audit:
+    runs-on: ubuntu-latest
+    name: Security advisories
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          coverage: none
+          tools: composer:v2
+
+      - name: Audit dependencies
+        run: composer audit --no-interaction
