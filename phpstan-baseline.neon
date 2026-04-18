@@ -1,0 +1,324 @@
+parameters:
+	ignoreErrors:
+		-
+			rawMessage: 'Cannot call method put() on mixed.'
+			identifier: method.nonObject
+			count: 1
+			path: src/AbstractFrontendDataProvider.php
+
+		-
+			rawMessage: 'Out of 79 possible return types, only 77 - 97.4 %% actually have it. Add more return types to get over 100 %%'
+			identifier: typeCoverage.returnTypeCoverage
+			count: 1
+			path: src/AbstractFrontendDataProvider.php
+
+		-
+			rawMessage: 'Out of 23 possible param types, only 9 - 39.1 %% actually have it. Add more param types to get over 100 %%'
+			identifier: typeCoverage.paramTypeCoverage
+			count: 2
+			path: src/Console/MakeFrontendDataProviderCommand.php
+
+		-
+			rawMessage: 'Out of 79 possible return types, only 77 - 97.4 %% actually have it. Add more return types to get over 100 %%'
+			identifier: typeCoverage.returnTypeCoverage
+			count: 1
+			path: src/Console/MakeFrontendDataProviderCommand.php
+
+		-
+			rawMessage: 'Part $customKey (mixed) of encapsed string cannot be cast to string.'
+			identifier: encapsedStringPart.nonString
+			count: 1
+			path: src/Console/MakeFrontendDataProviderCommand.php
+
+		-
+			rawMessage: 'Method HiHaHo\LaravelJsStore\DataProviderCollection::__construct() has parameter $providers with no value type specified in iterable type array.'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DataProviderCollection.php
+
+		-
+			rawMessage: 'Out of 23 possible param types, only 9 - 39.1 %% actually have it. Add more param types to get over 100 %%'
+			identifier: typeCoverage.paramTypeCoverage
+			count: 1
+			path: src/DataProviderCollection.php
+
+		-
+			rawMessage: 'Parameter #1 $callback of method Illuminate\Support\Collection<(int|string),mixed>::map() expects callable(mixed, int|string): mixed, Closure(string): mixed given.'
+			identifier: argument.type
+			count: 1
+			path: src/DataProviderCollection.php
+
+		-
+			rawMessage: 'Property HiHaHo\LaravelJsStore\DataProviderCollection::$items with generic class Illuminate\Support\Collection does not specify its types: TKey, TValue'
+			identifier: missingType.generics
+			count: 1
+			path: src/DataProviderCollection.php
+
+		-
+			rawMessage: Cannot access property $sandbox on mixed.
+			identifier: property.nonObject
+			count: 2
+			path: src/Octane/PrepareStoreForNextOperation.php
+
+		-
+			rawMessage: 'Cannot call method flushShared() on mixed.'
+			identifier: method.nonObject
+			count: 1
+			path: src/Octane/PrepareStoreForNextOperation.php
+
+		-
+			rawMessage: 'Cannot call method make() on mixed.'
+			identifier: method.nonObject
+			count: 1
+			path: src/Octane/PrepareStoreForNextOperation.php
+
+		-
+			rawMessage: 'Cannot call method resolved() on mixed.'
+			identifier: method.nonObject
+			count: 1
+			path: src/Octane/PrepareStoreForNextOperation.php
+
+		-
+			rawMessage: 'Out of 23 possible param types, only 9 - 39.1 %% actually have it. Add more param types to get over 100 %%'
+			identifier: typeCoverage.paramTypeCoverage
+			count: 1
+			path: src/Octane/PrepareStoreForNextOperation.php
+
+		-
+			rawMessage: 'Out of 23 possible param types, only 9 - 39.1 %% actually have it. Add more param types to get over 100 %%'
+			identifier: typeCoverage.paramTypeCoverage
+			count: 4
+			path: src/ServiceProvider.php
+
+		-
+			rawMessage: Possibly invalid array key type mixed.
+			identifier: array.invalidKey
+			count: 2
+			path: src/ServiceProvider.php
+
+		-
+			rawMessage: 'Class HiHaHo\LaravelJsStore\Store implements generic interface Illuminate\Contracts\Support\Arrayable but does not specify its types: TKey, TValue'
+			identifier: missingType.generics
+			count: 1
+			path: src/Store.php
+
+		-
+			rawMessage: 'Method HiHaHo\LaravelJsStore\Store::data() return type with generic class Illuminate\Support\Collection does not specify its types: TKey, TValue'
+			identifier: missingType.generics
+			count: 1
+			path: src/Store.php
+
+		-
+			rawMessage: 'Method HiHaHo\LaravelJsStore\Store::merge() has parameter $data with no value type specified in iterable type array.'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Store.php
+
+		-
+			rawMessage: 'Method HiHaHo\LaravelJsStore\Store::put() has parameter $data with no type specified.'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Store.php
+
+		-
+			rawMessage: 'Method HiHaHo\LaravelJsStore\Store::toJson() should return string but returns string|false.'
+			identifier: return.type
+			count: 1
+			path: src/Store.php
+
+		-
+			rawMessage: 'Out of 23 possible param types, only 9 - 39.1 %% actually have it. Add more param types to get over 100 %%'
+			identifier: typeCoverage.paramTypeCoverage
+			count: 2
+			path: src/Store.php
+
+		-
+			rawMessage: 'Property HiHaHo\LaravelJsStore\Store::$data with generic class Illuminate\Support\Collection does not specify its types: TKey, TValue'
+			identifier: missingType.generics
+			count: 1
+			path: src/Store.php
+
+		-
+			rawMessage: 'Out of 23 possible param types, only 9 - 39.1 %% actually have it. Add more param types to get over 100 %%'
+			identifier: typeCoverage.paramTypeCoverage
+			count: 1
+			path: src/helpers/store.php
+
+		-
+			rawMessage: 'Cannot call method data() on mixed.'
+			identifier: method.nonObject
+			count: 1
+			path: tests/DataProviderCollectionTest.php
+
+		-
+			rawMessage: 'Cannot call method make() on Illuminate\Foundation\Application|null.'
+			identifier: method.nonObject
+			count: 8
+			path: tests/DataProviderCollectionTest.php
+
+		-
+			rawMessage: 'PHPDoc tag @var for variable $storeData contains generic class Illuminate\Support\Collection but does not specify its types: TKey, TValue'
+			identifier: missingType.generics
+			count: 1
+			path: tests/DataProviderCollectionTest.php
+
+		-
+			rawMessage: 'Cannot call method data() on mixed.'
+			identifier: method.nonObject
+			count: 4
+			path: tests/DataProviderTest.php
+
+		-
+			rawMessage: 'Cannot call method make() on Illuminate\Foundation\Application|null.'
+			identifier: method.nonObject
+			count: 8
+			path: tests/DataProviderTest.php
+
+		-
+			rawMessage: 'PHPDoc tag @var for variable $storeData contains generic class Illuminate\Support\Collection but does not specify its types: TKey, TValue'
+			identifier: missingType.generics
+			count: 4
+			path: tests/DataProviderTest.php
+
+		-
+			rawMessage: 'Cannot call method expectsOutputToContain() on Illuminate\Testing\PendingCommand|int.'
+			identifier: method.nonObject
+			count: 3
+			path: tests/MakeFrontendDataProviderCommandTest.php
+
+		-
+			rawMessage: 'Method HiHaHo\LaravelJsStore\Tests\ScriptBladeTest::extractStoreData() should return array<string, mixed> but returns mixed.'
+			identifier: return.type
+			count: 1
+			path: tests/ScriptBladeTest.php
+
+		-
+			rawMessage: 'Method Illuminate\Contracts\Support\Jsonable@anonymous/tests/ScriptBladeTest.php:187::toJson() should return string but returns string|false.'
+			identifier: return.type
+			count: 1
+			path: tests/ScriptBladeTest.php
+
+		-
+			rawMessage: 'Offset 1 might not exist on array{}|array{non-falsy-string, string}.'
+			identifier: offsetAccess.notFound
+			count: 3
+			path: tests/ScriptBladeTest.php
+
+		-
+			rawMessage: 'Out of 23 possible param types, only 9 - 39.1 %% actually have it. Add more param types to get over 100 %%'
+			identifier: typeCoverage.paramTypeCoverage
+			count: 1
+			path: tests/ScriptBladeTest.php
+
+		-
+			rawMessage: 'Parameter #1 $view of function view expects view-string|null, string given.'
+			identifier: argument.type
+			count: 19
+			path: tests/ScriptBladeTest.php
+
+		-
+			rawMessage: 'Call to method PHPUnit\Framework\Assert::assertInstanceOf() with ''HiHaHo\\LaravelJsStore\\Store'' and HiHaHo\LaravelJsStore\Store will always evaluate to true.'
+			identifier: method.alreadyNarrowedType
+			count: 1
+			path: tests/StoreTest.php
+
+		-
+			rawMessage: 'Cannot call method make() on Illuminate\Foundation\Application|null.'
+			identifier: method.nonObject
+			count: 2
+			path: tests/StoreTest.php
+
+		-
+			rawMessage: 'Dynamic call to static method Illuminate\Http\Response::js().'
+			identifier: staticMethod.dynamicCall
+			count: 3
+			path: tests/StoreTest.php
+
+		-
+			rawMessage: 'Dynamic call to static method Illuminate\View\View::js().'
+			identifier: staticMethod.dynamicCall
+			count: 4
+			path: tests/StoreTest.php
+
+		-
+			rawMessage: 'Parameter #1 $expectedJson of method PHPUnit\Framework\Assert::assertJsonStringEqualsJsonString() expects string, string|false given.'
+			identifier: argument.type
+			count: 1
+			path: tests/StoreTest.php
+
+		-
+			rawMessage: 'Parameter #1 $view of function view expects view-string|null, string given.'
+			identifier: argument.type
+			count: 4
+			path: tests/StoreTest.php
+
+		-
+			rawMessage: 'Cannot call method make() on Illuminate\Foundation\Application|null.'
+			identifier: method.nonObject
+			count: 1
+			path: tests/TestCase.php
+
+		-
+			rawMessage: 'Out of 23 possible param types, only 9 - 39.1 %% actually have it. Add more param types to get over 100 %%'
+			identifier: typeCoverage.paramTypeCoverage
+			count: 2
+			path: tests/TestCase.php
+
+		-
+			rawMessage: 'Method HiHaHo\LaravelJsStore\Tests\stubs\SomeRandomName::data() return type has no value type specified in iterable type array.'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/stubs/SomeRandomName.php
+
+		-
+			rawMessage: PHPDoc tag @return with type mixed is not subtype of native type array.
+			identifier: return.phpDocType
+			count: 1
+			path: tests/stubs/SomeRandomName.php
+
+		-
+			rawMessage: 'Method HiHaHo\LaravelJsStore\Tests\stubs\UserFrontendDataProvider::data() return type has no value type specified in iterable type array.'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/stubs/UserFrontendDataProvider.php
+
+		-
+			rawMessage: PHPDoc tag @return with type mixed is not subtype of native type array.
+			identifier: return.phpDocType
+			count: 1
+			path: tests/stubs/UserFrontendDataProvider.php
+
+		-
+			rawMessage: 'Method HiHaHo\LaravelJsStore\Tests\stubs\UserProviderWithKey::data() return type has no value type specified in iterable type array.'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/stubs/UserProviderWithKey.php
+
+		-
+			rawMessage: PHPDoc tag @return with type mixed is not subtype of native type array.
+			identifier: return.phpDocType
+			count: 1
+			path: tests/stubs/UserProviderWithKey.php
+
+		-
+			rawMessage: PHPDoc tag @return with type mixed is not subtype of native type string.
+			identifier: return.phpDocType
+			count: 1
+			path: tests/stubs/ValidDataProvider.php
+
+		-
+			rawMessage: 'Method HiHaHo\LaravelJsStore\Tests\stubs\ValidEmptyDataProvider::data() return type has no value type specified in iterable type array.'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/stubs/ValidEmptyDataProvider.php
+
+		-
+			rawMessage: PHPDoc tag @return with type mixed is not subtype of native type array.
+			identifier: return.phpDocType
+			count: 1
+			path: tests/stubs/ValidEmptyDataProvider.php
+
+		-
+			rawMessage: 'Out of 23 possible declare(strict_types=1), only 22 - 95.7 %% actually have it. Add more declares to get over 100 %%'
+			count: 1
+			path: tests/stubs/views/index.blade.php

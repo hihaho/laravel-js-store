@@ -1,2 +1,3 @@
 providers:
   - HiHaHo\LaravelJsStore\ServiceProvider
+  - SanderMuller\PackageBoost\PackageBoostServiceProvider
