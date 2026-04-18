@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HiHaHo\LaravelJsStore\Tests;
 
@@ -8,7 +8,7 @@ use HiHaHo\LaravelJsStore\Tests\stubs\UserProviderWithKey;
 use HiHaHo\LaravelJsStore\Tests\stubs\ValidDataProvider;
 use Illuminate\Support\Collection;
 
-class DataProviderTest extends TestCase
+final class DataProviderTest extends TestCase
 {
     public function test_provider_generates_key_from_base_name(): void
     {

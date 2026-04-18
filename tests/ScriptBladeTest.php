@@ -1,11 +1,11 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HiHaHo\LaravelJsStore\Tests;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Jsonable;
 
-class ScriptBladeTest extends TestCase
+final class ScriptBladeTest extends TestCase
 {
     private const JSON_SCRIPT_PATTERN = '/<script[^>]*type="application\/json"[^>]*>(.*?)<\/script>/s';
 
@@ -160,7 +160,7 @@ class ScriptBladeTest extends TestCase
     {
         $this->store->put('foo', 'bar');
 
-        $html = view('index')->render().view('index')->render();
+        $html = view('index')->render() . view('index')->render();
 
         preg_match_all('/id="laravel-js-store-data-([A-Za-z0-9]+)"/', $html, $matches);
 
@@ -170,8 +170,7 @@ class ScriptBladeTest extends TestCase
 
     public function test_arrayable_payload_is_serialized(): void
     {
-        $this->store->put('arrayable', new class implements Arrayable
-        {
+        $this->store->put('arrayable', new class implements Arrayable {
             public function toArray(): array
             {
                 return ['id' => 42, 'text' => '<p style="x">"quoted"</p>'];
@@ -185,8 +184,7 @@ class ScriptBladeTest extends TestCase
 
     public function test_jsonable_payload_is_serialized(): void
     {
-        $this->store->put('jsonable', new class implements Jsonable
-        {
+        $this->store->put('jsonable', new class implements Jsonable {
             public function toJson($options = 0): string
             {
                 return json_encode(['label' => "it's \"quoted\""]);

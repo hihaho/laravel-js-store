@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HiHaHo\LaravelJsStore\Console;
 
@@ -34,7 +34,7 @@ class MakeFrontendDataProviderCommand extends GeneratorCommand
      */
     protected function getStub(): string
     {
-        return __DIR__.'/stubs/frontend-data-provider.stub';
+        return __DIR__ . '/stubs/frontend-data-provider.stub';
     }
 
     /**
@@ -44,7 +44,7 @@ class MakeFrontendDataProviderCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace): string
     {
-        return $rootNamespace.'\Http\FrontendDataProviders';
+        return $rootNamespace . '\Http\FrontendDataProviders';
     }
 
     protected function buildClass($name): string
@@ -52,17 +52,14 @@ class MakeFrontendDataProviderCommand extends GeneratorCommand
         $stub = parent::buildClass($name);
         $generatedKey = AbstractFrontendDataProvider::convertClassnameToKey($this->getNameInput());
 
-        if ($this->confirm("Generated key: $generatedKey, would you like to use a custom key?")) {
+        if ($this->confirm("Generated key: {$generatedKey}, would you like to use a custom key?")) {
             $customKey = $this->ask('Custom key');
+            $replacement = $customKey === '' ? 'protected string $key;' : "protected string \$key = '{$customKey}';";
 
-            $replacement = $customKey === '' ? 'protected string $key;' : "protected string \$key = '$customKey';";
-
-            $stub = str_replace('{{ CUSTOM_KEY }}', $replacement, $stub);
-        } else {
-            $stub = str_replace("    {{ CUSTOM_KEY }}\n\n", '', $stub);
+            return str_replace('{{ CUSTOM_KEY }}', $replacement, $stub);
         }
 
-        return $stub;
+        return str_replace("    {{ CUSTOM_KEY }}\n\n", '', $stub);
     }
 
     protected function getOptions()

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HiHaHo\LaravelJsStore\Octane;
 
@@ -17,10 +17,6 @@ class PrepareStoreForNextOperation
             return;
         }
 
-        $store = $event->sandbox->make(Store::class);
-
-        if (method_exists($store, 'flushShared')) {
-            $store->flushShared();
-        }
+        $event->sandbox->make(Store::class)->flushShared();
     }
 }

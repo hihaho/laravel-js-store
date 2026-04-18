@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HiHaHo\LaravelJsStore;
 
@@ -36,11 +36,7 @@ abstract class AbstractFrontendDataProvider
 
     protected function key(): string
     {
-        if (isset($this->key)) {
-            return $this->key;
-        }
-
-        return self::convertClassnameToKey(
+        return $this->key ?? self::convertClassnameToKey(
             (new \ReflectionClass($this))->getShortName()
         );
     }

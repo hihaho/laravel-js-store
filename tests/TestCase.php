@@ -1,10 +1,11 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HiHaHo\LaravelJsStore\Tests;
 
 use HiHaHo\LaravelJsStore\ServiceProvider;
 use HiHaHo\LaravelJsStore\Store;
 use HiHaHo\LaravelJsStore\Tests\stubs\ValidDataProvider;
+use Illuminate\Contracts\Config\Repository;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\View;
 use Orchestra\Testbench\TestCase as BaseTestCase;
@@ -26,7 +27,7 @@ class TestCase extends BaseTestCase
 
         $this->store = $this->app->make(Store::class);
 
-        View::addLocation(__DIR__.'/stubs/views');
+        View::addLocation(__DIR__ . '/stubs/views');
     }
 
     /**
@@ -36,7 +37,7 @@ class TestCase extends BaseTestCase
      */
     protected function getEnvironmentSetUp($app): void
     {
-        $app['config']->set('js-store.data-providers', [
+        $app->make(Repository::class)->set('js-store.data-providers', [
             ValidDataProvider::class,
         ]);
     }

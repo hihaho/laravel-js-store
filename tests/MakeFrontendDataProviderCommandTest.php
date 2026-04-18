@@ -1,11 +1,11 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HiHaHo\LaravelJsStore\Tests;
 
 use HiHaHo\LaravelJsStore\AbstractFrontendDataProvider;
 use Illuminate\Support\Facades\File;
 
-class MakeFrontendDataProviderCommandTest extends TestCase
+final class MakeFrontendDataProviderCommandTest extends TestCase
 {
     public function test_it_creates_a_data_provider(): void
     {
@@ -19,13 +19,9 @@ class MakeFrontendDataProviderCommandTest extends TestCase
 
         $this->assertFalse(File::exists($provider));
 
-        $expectedOutput = version_compare($this->app->version(), '9.32.0', '>=')
-            ? 'FrontendDataProvider [app/Http/FrontendDataProviders/Test.php] created successfully.'
-            : 'FrontendDataProvider created successfully.';
-
         $this->artisan('make:frontend-data-provider', ['name' => 'Test'])
-            ->expectsOutputToContain($expectedOutput)
-            ->expectsConfirmation("Generated key: $key, would you like to use a custom key?")
+            ->expectsOutputToContain('FrontendDataProvider [app/Http/FrontendDataProviders/Test.php] created successfully.')
+            ->expectsConfirmation("Generated key: {$key}, would you like to use a custom key?")
             ->assertExitCode(0)
             ->run();
 
@@ -68,13 +64,9 @@ CLASS;
 
         $this->assertFalse(File::exists($provider));
 
-        $expectedOutput = version_compare($this->app->version(), '9.32.0', '>=')
-            ? 'FrontendDataProvider [app/Http/FrontendDataProviders/Test.php] created successfully.'
-            : 'FrontendDataProvider created successfully.';
-
         $this->artisan('make:frontend-data-provider', ['name' => 'Test'])
-            ->expectsOutputToContain($expectedOutput)
-            ->expectsConfirmation("Generated key: $key, would you like to use a custom key?", 'yes')
+            ->expectsOutputToContain('FrontendDataProvider [app/Http/FrontendDataProviders/Test.php] created successfully.')
+            ->expectsConfirmation("Generated key: {$key}, would you like to use a custom key?", 'yes')
             ->expectsQuestion('Custom key', '')
             ->assertExitCode(0)
             ->run();
@@ -120,13 +112,9 @@ CLASS;
 
         $this->assertFalse(File::exists($provider));
 
-        $expectedOutput = version_compare($this->app->version(), '9.32.0', '>=')
-            ? 'FrontendDataProvider [app/Http/FrontendDataProviders/Test.php] created successfully.'
-            : 'FrontendDataProvider created successfully.';
-
         $this->artisan('make:frontend-data-provider', ['name' => 'Test'])
-            ->expectsOutputToContain($expectedOutput)
-            ->expectsConfirmation("Generated key: $key, would you like to use a custom key?", 'yes')
+            ->expectsOutputToContain('FrontendDataProvider [app/Http/FrontendDataProviders/Test.php] created successfully.')
+            ->expectsConfirmation("Generated key: {$key}, would you like to use a custom key?", 'yes')
             ->expectsQuestion('Custom key', 'custom-key')
             ->assertExitCode(0)
             ->run();

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HiHaHo\LaravelJsStore;
 
@@ -11,12 +11,8 @@ class DataProviderCollection
     public function __construct(array $providers)
     {
         $this->items = collect($providers)
-            ->map(function (string $provider) {
-                return app()->make($provider);
-            })
-            ->filter(function ($provider): bool {
-                return $provider instanceof AbstractFrontendDataProvider;
-            })
+            ->map(fn (string $provider) => app()->make($provider))
+            ->filter(fn ($provider): bool => $provider instanceof AbstractFrontendDataProvider)
             ->filter->hasData();
     }
 

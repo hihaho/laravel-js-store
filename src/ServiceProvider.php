@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HiHaHo\LaravelJsStore;
 
@@ -62,9 +62,7 @@ class ServiceProvider extends PackageServiceProvider
 
     public function packageRegistered(): void
     {
-        $this->app->singleton(Store::class, function (): Store {
-            return new Store;
-        });
+        $this->app->singleton(fn (): Store => new Store());
         $this->app->alias(Store::class, 'js-store');
     }
 }

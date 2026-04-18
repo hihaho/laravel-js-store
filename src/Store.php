@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HiHaHo\LaravelJsStore;
 
@@ -7,13 +7,13 @@ use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Support\Collection;
 
-class Store implements Arrayable, Jsonable
+class Store implements \Stringable, Arrayable, Jsonable
 {
     protected Collection $data;
 
     public function __construct()
     {
-        $this->data = new Collection;
+        $this->data = new Collection();
     }
 
     public function put(string $key, $data): self
@@ -52,7 +52,7 @@ class Store implements Arrayable, Jsonable
         $json = json_encode($this->data, $options);
 
         if (json_last_error() !== JSON_ERROR_NONE) {
-            throw new JsonEncodeStoreDataException('Unable to encode store data: '.json_last_error_msg());
+            throw new JsonEncodeStoreDataException('Unable to encode store data: ' . json_last_error_msg());
         }
 
         return $json;
@@ -68,6 +68,6 @@ class Store implements Arrayable, Jsonable
 
     public function flushShared(): void
     {
-        $this->data = new Collection;
+        $this->data = new Collection();
     }
 }

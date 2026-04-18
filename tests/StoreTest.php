@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace HiHaHo\LaravelJsStore\Tests;
 
@@ -8,7 +8,7 @@ use HiHaHo\LaravelJsStore\Store;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 
-class StoreTest extends TestCase
+final class StoreTest extends TestCase
 {
     public function test_store_is_single_instance(): void
     {
@@ -66,7 +66,7 @@ class StoreTest extends TestCase
         $this->store->put('user', "\xB1\x31")->toJson();
     }
 
-    public function test_view_macro_accepts_key_and_value()
+    public function test_view_macro_accepts_key_and_value(): void
     {
         $view = view('index')->js('foo', 'bar');
 
@@ -74,7 +74,7 @@ class StoreTest extends TestCase
         $this->assertSame('bar', $this->store->data()->get('foo'));
     }
 
-    public function test_view_macro_accepts_array()
+    public function test_view_macro_accepts_array(): void
     {
         $view = view('index')->js([
             'foo' => 'bar',
@@ -84,7 +84,7 @@ class StoreTest extends TestCase
         $this->assertSame('bar', $this->store->data()->get('foo'));
     }
 
-    public function test_view_macro_overwrites_previous_values()
+    public function test_view_macro_overwrites_previous_values(): void
     {
         $this->store->put('foo', 'bar');
 
@@ -97,7 +97,7 @@ class StoreTest extends TestCase
         $this->assertSame('fred', $this->store->data()->get('foo'));
     }
 
-    public function test_response_macro_accepts_key_and_value()
+    public function test_response_macro_accepts_key_and_value(): void
     {
         $response = response()->view('index')->js('foo', 'bar');
 
@@ -105,7 +105,7 @@ class StoreTest extends TestCase
         $this->assertSame('bar', $this->store->data()->get('foo'));
     }
 
-    public function test_response_macro_accepts_array()
+    public function test_response_macro_accepts_array(): void
     {
         $response = response()->view('index')->js([
             'foo' => 'bar',
@@ -115,7 +115,7 @@ class StoreTest extends TestCase
         $this->assertSame('bar', $this->store->data()->get('foo'));
     }
 
-    public function test_response_macro_throws_error_for_json_response()
+    public function test_response_macro_throws_error_for_json_response(): void
     {
         $this->expectException(InvalidResponseException::class);
 
