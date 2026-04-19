@@ -3,6 +3,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/hihaho/laravel-js-store.svg?style=flat)](https://packagist.org/packages/hihaho/laravel-js-store)
 [![Build Status](https://github.com/hihaho/laravel-js-store/actions/workflows/run-tests.yml/badge.svg?branch=master)](https://github.com/hihaho/laravel-js-store/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/hihaho/laravel-js-store.svg?style=flat)](https://packagist.org/packages/hihaho/laravel-js-store)
+[![Laravel Compatibility](https://badge.laravel.cloud/badge/hihaho/laravel-js-store)](https://packagist.org/packages/hihaho/laravel-js-store)
 
 Easily pass data to your view to create an initial state for your frontend.
 This package lets you easily create and register global data providers (for each page), which for example is useful for user data.
